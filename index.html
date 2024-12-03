@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar with Image</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .header {
+            border-bottom: 1px solid #f5f4f4;
+            display: flex;
+            height: 1.vh;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .header-left span {
+            font-size: 14px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-left span i {
+            color: #d4a373;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-right .social-icons a {
+            font-size: 13px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .header-right .social-icons a:hover {
+            color: #d4a373;
+        }
+
+        .header-right .booking-btn {
+            background-color: #d4a373;
+            color: #fff;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .header-right .booking-btn:hover {
+            background-color: #b58a5b;
+        }
+
+        .header-right .language-select {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            
+        }
+
+        .header-right .language-select img {
+            width: 19px;
+            height: 19px;
+        }
+
+        .header-right .language-select i {
+            font-size: 17px;
+        }
+
+        .language-select {
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            position: relative;
+
+            height: 3.9rem;
+
+        }
+
+        .navbar img {
+            height: 30px;
+            position: relative;
+            left: 80px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .nav-links a:hover {
+            color: #d4a373;
+        }
+
+        .dropdown {
+            
+            position: relative;
+        }
+
+        .dropdown-content {
+            right: -40px;
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            font-size: 16px;
+            width: 9vw;
+            display: block;
+            padding: 10px 15px;
+            color: #000;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .fa-magnifying-glass {
+            left: 5px;
+
+            position: relative;
+        }
+
+        .main {
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(https://preview.colorlib.com/theme/sona/img/hero/hero-2.jpg.webp);
+            height: 41rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .text1 {
+            position: relative;
+            top: 20px;
+            width: 42rem;
+            color: #fff;
+            font-family: 'Lora', serif;
+            font-weight: lighter;
+            margin: 10px;
+        }
+
+        .bt1 {
+            border: none;
+            background-color: transparent;
+            color: white;
+            text-decoration: underline yellow;
+            position: relative;
+            top: 20px;
+            font-size: 20px;
+        }
+
+        .text1 h1 {
+            font-size: 75px;
+            font-family: 'Lora', serif;
+            font-weight: 100;
+        }
+
+        .text1 p {
+            font-size: 20px;
+            color: white;
+        }
+
+        .pic1 {
+            position: relative;
+            top: 3rem;
+            width: 25rem;
+            border: 1px solid;
+            height: 32rem;
+            padding-left: 25px;
+            background-color: white;
+        }
+
+        .pic1 h2 {
+            font-size: 30px;
+            font-family: lora, serif;
+            font-weight: 100;
+        }
+
+        label {
+            font-size: 14px;
+
+
+        }
+
+        input {
+            width: 24vw;
+            height: 5vh;
+            color: #d4a373;
+            align-items: center;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        select {
+            font-family: lora, serif;
+            font-size: 15px;
+            width: 24vw;
+            height: 5vh;
+        }
+
+        .bt2 {
+            color: #dfa974;
+            border: 1px solid #dfa974;
+            margin-left: 0px;
+            text-align: center;
+            font-size: 14px;
+            width: 24vw;
+            background-color: transparent;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-family: lora, serif;
+            font-weight: bold;
+        }
+
+        .textimg1 {
+            background-image: url(https://preview.colorlib.com/theme/sona/img/about/about-1.jpg.webp);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 20vw;
+            height: 63vh;
+        }
+
+        .textimg2 {
+            background-image: url(https://preview.colorlib.com/theme/sona/img/about/about-2.jpg.webp);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 20vw;
+            height: 63vh;
+
+        }
+
+        .mainpic {
+            position: relative;
+            height: 80vh;
+            justify-content: center;
+            border-bottom: 1px solid black;
+            display: flex;
+            gap: 35px;
+            margin-top: 150px;
+            box-sizing: border-box;
+        }
+
+        .textpic {
+            gap: 30px;
+            width: 34vw;
+            font-family: 'Lora', serif;
+        }
+
+        .textpic h6 {
+            font-weight: 100;
+            font-size: 15px;
+            color: #e69238;
+            text-align: center;
+        }
+
+        .textpic h2 {
+            font-weight: 100;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .textpic p {
+            font-weight: 100;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .bt3 {
+            background-color: transparent;
+            border: none;
+            text-decoration: 2px underline rgb(255, 175, 26);
+            text-align: center;
+            display: flex;
+
+            position: relative;
+            left: 180px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .main2 {
+            position: relative;
+            font-family: 'Lora', serif;
+        }
+
+        .main2 h6 {
+            position: relative;
+            top: 20px;
+            font-size: 15px;
+            color: #dfa974;
+            text-align: center;
+        }
+
+        .main2 h1 {
+            text-align: center;
+            font-weight: 100;
+            font-size: 55px;
+
+        }
+
+        .icon1 {
+            text-align: center;
+            width: 30vw;
+        }
+
+        .iconmain {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .service-item {
+            text-align: center;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 40px;
+            color: #f4a261;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .imgmain {
+
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 100vh;
+            font-family: 'Lora', serif;
+            position: relative;
+        }
+
+        .im2 {
+            background-image: url(https://preview.colorlib.com/theme/sona/img/room/room-b1.jpg.webp);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 20vw;
+            height: 90vh;
+        }
+
+        .im3 {
+            background-image: url(https://preview.colorlib.com/theme/sona/img/room/room-b2.jpg.webp);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 20vw;
+            height: 90vh;
+
+        }
+
+        .im4 {
+            background-image: url(https://preview.colorlib.com/theme/sona/img/room/room-b1.jpg.webp);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 20vw;
+            height: 90vh;
+
+        }
+
+        .im5 {
+            background-image: url(https://preview.colorlib.com/theme/sona/img/room/room-b4.jpg.webp);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 24vw;
+            height: 90vh;
+
+
+        }
+
+        .imgmain h3 {
+            color: white;
+            font-weight: 100;
+            font-size: 32px;
+            position: relative;
+            top: 405px;
+            text-align: center;
+        }
+
+        .imgmain h5 {
+            position: relative;
+            top: 345px;
+            left: 60px;
+            font-weight: bold;
+            color: #e69238;
+            font-size: 37px;
+        }
+
+        .imgmain span {
+            color: white;
+            font-size: 14px;
+        }
+        .main3text{
+            top: 160px;
+            width: 40vw;
+            position: relative;
+            left: 30%;
+            height: 80vh;
+            text-align: center;
+            font-family: lora,serif;
+          font-family: 100;
+        }
+        .main3text h6{
+            font-size: 18px;
+            color: #e69238;
+
+        }
+        .main3text h2{
+            font-size: 50px;
+            font-weight: 100;
+            
+        }
+        .main3text p{
+            font-size: 17px;
+        }
+        .main3text span {
+            color: #e69238;
+            font-size: 20px;
+        }
+        .main3{
+            top: -40px;
+            position: relative;
+            height: 100vh;
+            background-color: aliceblue;
+        }
+        .blogmain{
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: lora,serif;
+            justify-content: center;
+            height: 100vh;
+            gap: 20px;
+        }
+        .blog1{
+            padding: 20px;
+            box-sizing: border-box;
+            width: 20vw;
+            height: 60vh;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(https://preview.colorlib.com/theme/sona/img/blog/blog-1.jpg.webp);
+            border-radius: 5px;
+        }
+        .blog2{
+            border-radius: 5px;
+            width: 20vw;
+            height: 60vh;
+            padding: 20px;
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(https://preview.colorlib.com/theme/sona/img/blog/blog-2.jpg.webp);
+            
+        }
+        .blog3{
+            width: 20vw;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 60vh;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            border-radius: 5px;
+            background-image: url(https://preview.colorlib.com/theme/sona/img/blog/blog-3.jpg.webp);
+            
+        }
+        .blog4{
+            border-radius: 5px;
+
+            padding: 20px;
+            box-sizing: border-box;
+            width: 42vw;
+            height: 60vh;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(https://preview.colorlib.com/theme/sona/img/blog/blog-wide.jpg.webp);
+            
+        }
+        .blog5{
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            width: 20vw;
+            height: 60vh;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(https://preview.colorlib.com/theme/sona/img/blog/blog-10.jpg.webp);
+
+        }
+        .blogmain button{
+            position: relative;
+            top: 250px;
+            background-color: #e69238;
+            font-size: 12px;
+            color: white;
+            border: none;
+
+        }
+        .blogmain h3{
+            font-weight: 100;
+            font-size: 19px;
+            color: white;
+            position: relative;
+            top: 250px;
+        }
+        .blogmain h5{
+            font-weight: 100;
+            color: white;
+            position: relative;
+            top: 240px;}
+
+            .footer {
+width: ;
+                font-family: lora,serif;
+                position: relative;
+                top: 220px;
+                box-sizing: border-box;
+            background-color: #1c1c1c;
+            color: #fff;
+            padding: 30px 20px;
+        }
+        .footer .container {
+            
+        
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer .container div {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+        .footer h3 {
+            font-size: 30px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .footer p, .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #ffae42;
+        }
+        .social-icons a {
+            margin: 0 5px;
+            color: #ccc;
+            font-size: 20px;
+        }
+        .social-icons a:hover {
+            color: #ffae42;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 70%;
+            margin-right: 10px;
+        }
+        .newsletter button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffae42;
+            color: #fff;
+            cursor: pointer;
+        }
+        .newsletter button:hover {
+            background-color: #e09d3c;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }            </style>
+
+</head>
+
+<body>
+    <header class="header">
+
+        <div class="header-left">
+            <span><i class="fas fa-phone"></i> (12) 345 67890</span>
+            <span><i class="fas fa-envelope"></i> info.colorlib@gmail.com</span>
+        </div>
+
+
+        <div class="header-right">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-magento"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="#" class="booking-btn">BOOKING NOW</a>
+            <div class="language-select">
+                <img src="img/pngwing.com.png" alt="Language">
+                <span>EN</span>
+                <i class="fas fa-caret-down"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="navbar">
+
+        <img src="https://preview.colorlib.com/theme/sona/img/logo.png.webp" alt="Logo">
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Rooms</a>
+            <a href="#">About Us</a>
+            <div class="dropdown">
+                <a href="#">Pages</a>
+                <div class="dropdown-content">
+                    <a href="#">Room Details</a>
+                    <a href="#">Blog Details</a>
+                    <a href="#">Family Rooom</a>
+                    <a href="#">Premum room</a>
+
+                </div>
+            </div>
+            <a href="#">News</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="text1">
+            <h1>Sona A Luxury Hotel</h1>
+            <p>Here are the best hotel booking sites, including recommendations for international .</p>
+            <button class="bt1">Discover now</button>
+        </div>
+        <div class="pic1"data-aos="fade-up"data-aos-duration="1000" data-aos-delay="50" data-aos-easing="ease-out">
+            <h2>Booking Your Hotel</h2>
+            <form action="">
+                <label>Check In:</label>
+
+                <br>
+                <input type="month">
+                <br>
+                <br>
+                <label>Check Out:</label>
+
+                <br>
+                <input type="month">
+                <br>
+                <br>
+
+                <label for="">Guests:</label>
+                <br>
+                <select>
+                    <option value="volvo">2 ADULTS</option>
+                    <option value="saab">3 ADULTS</option>
+                    <option value="saab">4 ADULTS</option>
+
+                </select>
+                <br>
+                <br>
+                <label for="">Room:</label>
+                <br>
+                <select>
+                    <option value="volvo">1 Room</option>
+                    <option value="saab">2 Room</option>
+                    <option value="saab">3 Room</option>
+
+                </select>
+                <br>
+                <br>
+                <br>
+                <button class="bt2">Check Availibility</button>
+            </form>
+        </div>
+
+    </div>
+    <div class="mainpic">
+        <div class="textpic" data-aos="fade-right"data-aos-duration="1000" data-aos-delay="200" data-aos-easing="ease-out">
+            <h6>About Us</h6>
+            <h2>Intercontinental LA
+                Westlake Hotel</h2>
+            <p>Sona.com is a leading online accommodation site. We’re passionate about travel. Every day, we inspire and
+                reach millions of travelers across 90 local websites in 41 languages. <br> <br> So when it comes to
+                booking the perfect hotel, vacation rental, resort, apartment, guest house, or tree house, we’ve got you
+                covered.</p>
+            <button class="bt3">Read More</button>
+        </div>
+        <div class="textimg1" data-aos="fade-up"data-aos-duration="1000" data-aos-delay="50" data-aos-easing="ease-out"></div>
+        <div class="textimg2"data-aos="fade-up"data-aos-duration="1200" data-aos-delay="50" data-aos-easing="ease-out"></div>
+
+    </div>
+    <div class="main2">
+
+        <h6>WHAT WE DO</h6>
+        <h1 data-aos="fade-up"data-aos-duration="1000" data-aos-delay="50" data-aos-easing="ease-out">Discover Our Services</h1>
+        <div class="services" data-aos="fade-down-right" data-aos-duration="1000">
+            <div class="service-item">
+                <div class="icon">📍</div>
+                <h3>Travel Plan</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon">🍽️</div>
+                <h3>Catering Service</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon">🍼</div>
+                <h3>Babysitting</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon">🧺</div>
+                <h3>Laundry</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon">🚗</div>
+                <h3>Hire Driver</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon">🍸</div>
+                <h3>Bar & Drink</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="imgmain" >
+        <div class="im2"data-aos="fade-up"data-aos-duration="500" data-aos-delay="80" data-aos-easing="ease-out">
+            <h3>Double Room</h3>
+            <h5>199$<span>/Pernight</span></h5>
+
+        </div>
+        <div class="im3"data-aos="fade-up"data-aos-duration="900" data-aos-delay="80" data-aos-easing="ease-out">
+            <h3>Premium Room</h3>
+            <h5>159$ <span>/Pernight</span></h5>
+
+        </div>
+        <div class="im4"data-aos="fade-up"data-aos-duration="1200" data-aos-delay="80" data-aos-easing="ease-out">
+            <h3>Deluxe Room</h3>
+            <h5>198$ <span>/Pernight</span></h5>
+
+        </div>
+        <div class="im5"data-aos="fade-up"data-aos-duration="1000" data-aos-delay="50" data-aos-easing="ease-out">
+            <h3>Family Room</h3>
+            <h5>299$ <span>/Pernight</span></h5>
+
+        </div>
+
+    </div>
+    <div class="main3">
+
+        <div class="main3text"data-aos="zoom-in"data-aos-duration="1000" data-aos-delay="50">
+            <h6>Testimonials</h6>
+            <h2>What Customers Say?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus eum odit ratione ipsum voluptas rem,
+                sapiente doloribus ut harum assumenda sint libero praesentium fugiat veniam tempore, magnam placeat aperiam
+                atque nemo aliquam sed. Quia cupiditate debitis ea ipsa recusandae dolorum, quam ad accusantium repellat
+                minus minima obcaecati provident nemo fugiat?</p>
+                <h5><span> ☆☆☆☆☆</span>-Alexender vasquez</h5>
+                
+            </div>
+        </div>
+        <div class="blogmain"data-aos="zoom-out-up"data-aos-duration="1000" data-aos-delay="50">
+            <div class="blog1">
+                <button>TRAVEL TRIP</button>
+                <h3>Tremblant In Canada </h3>
+                <h5>⏱︎ 15TH APRIL 2019 </h5>
+            </div>
+            <div class="blog2">
+                <button>CAMPING</button>
+                <h3>Choosing A Static Cravan</h3>
+                <h5>⏱︎ 15TH APRIL 2019 </h5>
+            </div>
+            <div class="blog3">
+                <button>EVENT</button>
+                <h3>Copper Canyon</h3>
+                <h5>⏱︎ 21TH APRIL 2019 </h5>
+            </div>
+            <div class="blog4">
+                <button>EVENT</button>
+                <h3>Trip To Iqualtic In Nunavut A Canadian Stary</h3>
+                <h5>⏱︎ 08TH APRIL 2019 </h5>
+            </div>
+            <div class="blog5">
+                <button>TRAVEL</button>
+                <h3>Traveling To Barceline</h3>
+                <h5>⏱︎ 12TH APRIL 2019 </h5>
+            </div>
+        </div>
+      
+        <footer class="footer">
+        <div class="container">
+            <div>
+                <h3>Sona.</h3>
+                <p>We inspire and reach millions of travelers across 90 local websites.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <p>(12) 345 67890</p>
+                <p>info.colorlib@gmail.com</p>
+                <p>856 Cordia Extension Apt. 356, Lake, United State</p>
+            </div>
+            <div class="newsletter">
+                <h3>New Latest</h3>
+                <p>Get the latest updates and offers.</p>
+                <input type="email" placeholder="Email">
+                <button>&#10148;</button> <!-- Arrow symbol -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 All rights reserved | This template is made with &#9829; by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+        </div>
+    </footer>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script>
+            AOS.init(); // Initialize AOS
+        </script>
+    </body>
+
+</html>
